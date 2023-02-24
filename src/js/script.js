@@ -63,6 +63,11 @@ jejemonifyTextArea.addEventListener('input', (e) => {
 	}
 });
 
+jejemonifyTextArea.setAttribute(
+	'placeholder',
+	`Type anything here\n\n${jejemonify('I can translate your words 😜')}`
+);
+
 copyBtn.addEventListener('click', () => {
 	//Select the text field
 	jejemonifyTextArea.select();
