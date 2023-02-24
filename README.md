@@ -21,4 +21,4 @@ The logic or idea behind the 'Jejemonify function' itself. I got it from the tik
 
 -   [Carlo Autor - Github](https://github.com/A14313)
 
-You can support me by donating to my [paypal account](paypal.me/carloautor). Any amount will be much appreciated :)
+You can support me by donating to my [paypal account](https://www.paypal.me/carloautor). Any amount will be much appreciated :)
