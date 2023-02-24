@@ -1,0 +1,25 @@
+{
+	"name": "jejemonify-app",
+	"version": "1.0.0",
+	"description": "The logic or idea behind the 'Jejemonify function' itself. I got from the tiktoker 'Kim Nejudne'. But I want to improve that, so I build a UI to make it an app",
+	"scripts": {
+		"start": "parcel src/*.html --open",
+		"build": "parcel build src/*.html --public-url ./"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/A14313/jejemonify-app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/A14313/jejemonify-app/issues"
+	},
+	"homepage": "https://github.com/A14313/jejemonify-app#readme",
+	"devDependencies": {
+		"@parcel/transformer-sass": "^2.8.3",
+		"parcel": "^2.8.3",
+		"sass": "^1.58.3"
+	}
+}

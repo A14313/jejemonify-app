@@ -1,0 +1,155 @@
+@import 'breakpoints';
+@import 'colors';
+@import 'fonts';
+@import 'resets';
+
+:root {
+	--border-radius: 0.5em;
+	--transition-speed: 500ms;
+}
+
+.viewport-checker {
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+
+	& .container {
+		width: 90%;
+		max-width: 500px;
+		margin-inline: auto;
+	}
+
+	& h1 {
+		line-height: 1.2;
+	}
+
+	& p {
+		margin-block: 1.3em;
+		line-height: 1.7;
+	}
+
+	@include mediaQuery(xsm) {
+		display: none;
+	}
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	display: grid;
+	grid-template-rows: 1fr;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	display: grid;
+	place-items: center;
+}
+
+.container {
+	width: 90%;
+	max-width: 1000px;
+	margin-inline: auto;
+}
+
+.card {
+	position: relative;
+	width: 100%;
+	max-width: 320px;
+	margin-inline: auto;
+	border-radius: var(--border-radius);
+	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.3);
+	padding: 2em;
+	transition: max-width var(--transition-speed) ease;
+
+	@include mediaQuery(sm) {
+		max-width: 600px;
+	}
+}
+
+.result {
+	overflow-y: scroll;
+	max-height: 80px;
+	margin-block: 1em;
+}
+
+.btn {
+	color: hsl(0, 0%, 100%);
+	outline: none;
+	border: none;
+	background-color: transparent;
+	padding: 0.75em 1em;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+#copyBtn {
+	background-color: var(--clr-copy-button);
+
+	&:hover #toolTipText {
+		opacity: 1;
+	}
+
+	&:disabled #toolTipText {
+		opacity: 0;
+	}
+}
+
+#resetBtn {
+	background-color: var(--clr-reset-button);
+}
+
+#jejemonifyTextArea {
+	width: 100%;
+	padding: 0.75em 1em;
+	margin-block-end: 1em;
+	outline: none;
+	background: none;
+	resize: none;
+	border: 1px solid #333;
+	border-radius: var(--border-radius);
+}
+
+.tooltip {
+	position: relative;
+
+	&.flex {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1em;
+	}
+
+	#toolTipText {
+		position: absolute;
+		top: 120%;
+		right: 10%;
+		height: 100%;
+		width: 200px;
+		background-color: #333;
+		border-radius: var(--border-radius);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-inline: 0.8em;
+
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity var(--transition-speed) ease;
+	}
+}
+
+footer {
+	margin-top: auto;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
