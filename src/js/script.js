@@ -3,6 +3,10 @@ const jejemonifyTextArea = document.querySelector('#jejemonifyTextArea');
 const copyBtn = document.querySelector('#copyBtn');
 const resetBtn = document.querySelector('#resetBtn');
 const toolTipText = document.querySelector('#toolTipText');
+const signatureCheckbox = document.querySelector('#signature');
+
+const signature = 'Copied from jejemonify app';
+const placeholder = 'I can translate your words 😜';
 
 const dictionary = {
 	a: '@',
@@ -50,10 +54,15 @@ function jejemonify(words) {
 	// the join method, We use blank string to avoid the default comma separator
 }
 
+//Defaults when the page loads
 jejemonifyTextArea.value = '';
 copyBtn.setAttribute('disabled', '');
+jejemonifyTextArea.setAttribute(
+	'placeholder',
+	`Type anything here\n\n${jejemonify(placeholder)}`
+);
 
-jejemonifyTextArea.addEventListener('input', (e) => {
+jejemonifyTextArea.addEventListener('input', () => {
 	if (jejemonifyTextArea.value.length !== 0) {
 		paragraph.innerText = jejemonify(jejemonifyTextArea.value);
 		copyBtn.removeAttribute('disabled');
@@ -63,10 +72,13 @@ jejemonifyTextArea.addEventListener('input', (e) => {
 	}
 });
 
-jejemonifyTextArea.setAttribute(
-	'placeholder',
-	`Type anything here\n\n${jejemonify('I can translate your words 😜')}`
-);
+// signatureCheckbox.addEventListener('input', (e) => {
+// 	if (e.target.checked === true) {
+// 		console.log('checked');
+// 	} else {
+// 		console.log('unchecked');
+// 	}
+// });
 
 copyBtn.addEventListener('click', () => {
 	//Select the text field
@@ -74,7 +86,9 @@ copyBtn.addEventListener('click', () => {
 	jejemonifyTextArea.setSelectionRange(0, 99999); //For mobile devices
 
 	//Copy the text inside the text field
-	navigator.clipboard.writeText(jejemonify(jejemonifyTextArea.value));
+	navigator.clipboard.writeText(
+		`${jejemonify(jejemonifyTextArea.value)}\n ---${signature}`
+	);
 
 	//Set the text to tool tip
 	toolTipText.innerText = 'Copied to clipboard';

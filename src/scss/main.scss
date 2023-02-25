@@ -63,7 +63,7 @@ a {
 	border-radius: var(--border-radius);
 	box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.3);
 	padding: 2em;
-	transition: max-width var(--transition-speed) 300ms ease;
+	transition: max-width var(--transition-speed) 400ms ease;
 
 	@include mediaQuery(sm) {
 		max-width: 600px;
@@ -152,4 +152,9 @@ footer {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+}
+
+#signature,
+label[for='signature'] {
+	display: none;
 }
