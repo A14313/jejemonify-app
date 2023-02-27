@@ -9,11 +9,13 @@ const signature = 'Copied from jejemonify app';
 const placeholder = 'I can translate your words 😜';
 
 const dictionary = {
-	a: '@',
-	e: '3',
-	i: '!',
-	o: '0',
-	g: '9',
+	a: ['@', '4', 'à'],
+	e: ['3', 'ê', 'é', 'ē', 'È', 'Ë', 'É', 'Ê'],
+	i: ['!', 'î', 'ï'],
+	o: ['0', 'ö', 'ô', 'ø'],
+	g: ['9', 'q', 'G'],
+	u: ['û', 'ü', 'ū'],
+	'.': [',,', '.~'],
 };
 
 function jejemonify(words) {
@@ -31,8 +33,11 @@ function jejemonify(words) {
 			// Parang shorthand yung naka sulat dito sa if statement.
 			// tandaan na laging truth ang nasa if statement
 			// unless lagyan ng "!" exclamation, mababaliktad kaya magiging falsy
+
+			//H,e,l,l,o
 			if (dictionary[el]) {
-				return dictionary[el];
+				const rand = Math.floor(Math.random() * dictionary[el].length);
+				return dictionary[el][rand];
 			}
 
 			// We want to check every index if it is an odd number
